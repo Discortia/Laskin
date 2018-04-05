@@ -1,0 +1,59 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<link rel="stylesheet" type="text/css" href="laskinStyle.css">
+<title>Laskin</title>
+</head>
+
+<body>
+<div ng-app="laskin" ng-controller="laskinController">
+<table border=1>
+<tr>
+	<td colspan=4 class="screenUpper" ng-model="screenUpper">
+	{{screenUpper}}	
+	</td>
+</tr>
+<tr>
+	<td colspan=4 class="screenLower" ng-model="screenLower">
+	{{screenLower}}	
+	</td>
+</tr>
+<tr>
+	<td class ="square" ng-click = "clearScreen()">C</td>
+	<td class ="square" ng-click = "clearLast()">B</td>
+	<td class ="square" ng-click = "calculate('/')">/</td>
+	<td class ="square" ng-click = "calculate('*')">*</td>
+</tr>
+<tr>
+	<td class ="square" ng-click = "inputKey(7)">7</td>
+	<td class ="square" ng-click = "inputKey(8)">8</td>
+	<td class ="square" ng-click = "inputKey(9)">9</td>
+	<td class ="square" ng-click = "calculate('-')">-</td>
+</tr>
+<tr>
+	<td class ="square" ng-click = "inputKey(4)">4</td>
+	<td class ="square" ng-click = "inputKey(5)">5</td>
+	<td class ="square" ng-click = "inputKey(6)">6</td>
+	<td class ="square" ng-click = "calculate('+')">+</td>
+</tr>
+<tr>
+	<td class ="square" ng-click = "inputKey(1)">1</td>
+	<td class ="square" ng-click = "inputKey(2)">2</td>
+	<td class ="square" ng-click = "inputKey(3)">3</td>
+	<td class ="wide" rowspan=2 ng-click="showResult()">=</td>
+</tr>
+<tr>
+	<td class ="wide" colspan=2 ng-click="inputKey(0)">0</td>
+	<td class ="square" ng-click="inputKey('.')">.</td>
+</tr>
+</table>
+
+
+</div>
+
+<script src="laskinController.js"></script>
+</body>
+
+</html> 

@@ -1,0 +1,17 @@
+.screenUpper {
+	height : 20px;
+}
+
+.screenLower {
+	height : 20px;
+}
+
+.square {
+	height : 20px;
+	width : 20px;
+	text-align : center;
+}	
+
+.wide {
+	text-align : center;
+}	
