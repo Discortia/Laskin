@@ -23,26 +23,26 @@
 <tr>
 	<td class ="square" ng-click = "clearScreen()">C</td>
 	<td class ="square" ng-click = "clearLast()">B</td>
-	<td class ="square" ng-click = "calculate('/')">/</td>
-	<td class ="square" ng-click = "calculate('*')">*</td>
+	<td class ="square" ng-click = "chooseOperator('/')">/</td>
+	<td class ="square" ng-click = "chooseOperator('*')">*</td>
 </tr>
 <tr>
 	<td class ="square" ng-click = "inputKey(7)">7</td>
 	<td class ="square" ng-click = "inputKey(8)">8</td>
 	<td class ="square" ng-click = "inputKey(9)">9</td>
-	<td class ="square" ng-click = "calculate('-')">-</td>
+	<td class ="square" ng-click = "chooseOperator('-')">-</td>
 </tr>
 <tr>
 	<td class ="square" ng-click = "inputKey(4)">4</td>
 	<td class ="square" ng-click = "inputKey(5)">5</td>
 	<td class ="square" ng-click = "inputKey(6)">6</td>
-	<td class ="square" ng-click = "calculate('+')">+</td>
+	<td class ="square" ng-click = "chooseOperator('+')">+</td>
 </tr>
 <tr>
 	<td class ="square" ng-click = "inputKey(1)">1</td>
 	<td class ="square" ng-click = "inputKey(2)">2</td>
 	<td class ="square" ng-click = "inputKey(3)">3</td>
-	<td class ="wide" rowspan=2 ng-click="showResult()">=</td>
+	<td class ="wide" rowspan=2 ng-click="chooseOperator('=')">=</td>
 </tr>
 <tr>
 	<td class ="wide" colspan=2 ng-click="inputKey(0)">0</td>
