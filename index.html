@@ -8,45 +8,46 @@
 </head>
 
 <body>
-<div ng-app="laskin" ng-controller="laskinController">
-<table border=1>
+<div class="main" ng-app="laskin" ng-controller="laskinController">
+<table>
 <tr>
-	<td colspan=4 class="screenUpper" ng-model="screenUpper">
+	<td class = "screen" colspan=4>
+	<div class="screenUpper" ng-model="screenUpper">
 	{{screenUpper}}	
+	</div>
+
+	<div class="screenLower" ng-model="screenLower">
+	{{screenLower}}
+	</div>	
 	</td>
 </tr>
 <tr>
-	<td colspan=4 class="screenLower" ng-model="screenLower">
-	{{screenLower}}	
-	</td>
+	<td class ="square" ng-click = "clearScreen()"><img src="imgs/oper_clear_1.png"></td>
+	<td class ="square" ng-click = "clearLast()"><img src="imgs/oper_back_1.png"></td>
+	<td class ="square" ng-click = "chooseOperator('/')"><img src="imgs/oper_div_1.png"></td>
+	<td class ="square" ng-click = "chooseOperator('*')"><img src="imgs/oper_multi_1.png"></td>
 </tr>
 <tr>
-	<td class ="square" ng-click = "clearScreen()">C</td>
-	<td class ="square" ng-click = "clearLast()">B</td>
-	<td class ="square" ng-click = "chooseOperator('/')">/</td>
-	<td class ="square" ng-click = "chooseOperator('*')">*</td>
+	<td class ="square" ng-click = "inputKey(7)"><img src="imgs/num7_1.png"></td>
+	<td class ="square" ng-click = "inputKey(8)"><img src="imgs/num8_1.png"></td>
+	<td class ="square" ng-click = "inputKey(9)"><img src="imgs/num9_1.png"></td>
+	<td class ="square" ng-click = "chooseOperator('-')"><img src="imgs/oper_subtr_1.png"></td>
 </tr>
 <tr>
-	<td class ="square" ng-click = "inputKey(7)">7</td>
-	<td class ="square" ng-click = "inputKey(8)">8</td>
-	<td class ="square" ng-click = "inputKey(9)">9</td>
-	<td class ="square" ng-click = "chooseOperator('-')">-</td>
+	<td class ="square" ng-click = "inputKey(4)"><img src="imgs/num4_1.png"></td>
+	<td class ="square" ng-click = "inputKey(5)"><img src="imgs/num5_1.png"></td>
+	<td class ="square" ng-click = "inputKey(6)"><img src="imgs/num6_1.png"></td>
+	<td class ="square" ng-click = "chooseOperator('+')"><img src="imgs/oper_add_1.png"></td>
 </tr>
 <tr>
-	<td class ="square" ng-click = "inputKey(4)">4</td>
-	<td class ="square" ng-click = "inputKey(5)">5</td>
-	<td class ="square" ng-click = "inputKey(6)">6</td>
-	<td class ="square" ng-click = "chooseOperator('+')">+</td>
+	<td class ="square" ng-click = "inputKey(1)"><img src="imgs/num1_1.png"></td>
+	<td class ="square" ng-click = "inputKey(2)"><img src="imgs/num2_1.png"></td>
+	<td class ="square" ng-click = "inputKey(3)"><img src="imgs/num3_1.png"></td>
+	<td class ="wide" rowspan=2 ng-click="chooseOperator('=')"><img src="imgs/oper_eq_1.png"></td>
 </tr>
 <tr>
-	<td class ="square" ng-click = "inputKey(1)">1</td>
-	<td class ="square" ng-click = "inputKey(2)">2</td>
-	<td class ="square" ng-click = "inputKey(3)">3</td>
-	<td class ="wide" rowspan=2 ng-click="chooseOperator('=')">=</td>
-</tr>
-<tr>
-	<td class ="wide" colspan=2 ng-click="inputKey(0)">0</td>
-	<td class ="square" ng-click="inputKey('.')">.</td>
+	<td class ="wide" colspan=2 ng-click="inputKey(0)"><img src="imgs/num0_1.png"></td>
+	<td class ="square" ng-click="inputKey('.')"><img src="imgs/decimal_1.png"></td>
 </tr>
 </table>
 

@@ -1,17 +1,60 @@
+@import url('https://fonts.googleapis.com/css?family=Cutive Mono');
+
+table {
+	
+	margin-left : 10px;
+	margin-top : 30px;
+	position : relative;
+	top : 9px;
+}
+
+.main {
+	height: 340px;
+	background-image : url("imgs/base.png");
+	background-repeat: no-repeat;
+	
+}
+
+
+.screen {
+	height : 75px;
+	width : 229px;
+	background-image : url("imgs/scrn.png");
+	background-repeat: no-repeat;
+	text-align : right;
+	color : #ffffff;
+	font-family: 'Cutive Mono';
+	margin : auto;
+
+}
+
 .screenUpper {
 	height : 20px;
+	width : 180px;
+	overflow : hidden;
+	margin : auto;
+	font-size : 12px;
 }
 
 .screenLower {
-	height : 20px;
+	height : 30px;
+	width : 180px;
+	overflow : hidden;
+	margin : auto;
+	font-size : 20px;
 }
 
-.square {
-	height : 20px;
-	width : 20px;
-	text-align : center;
+
+td.square {
+	height : 41px;
+	width : 52px;
+	margin : 0px;
 }	
 
 .wide {
-	text-align : center;
-}	
+
+
+}
+
+
+	
