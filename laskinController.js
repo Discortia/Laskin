@@ -1,10 +1,45 @@
-var laskin = angular.module('laskin',[]);
+var app = angular.module('laskin',[]);
 
-laskin.controller('laskinController', ['$scope', function($scope) {
+app.service('operators', function() {
+    this.showResult = function(y,x,z) {
+	
+
+		if(isNaN(parseFloat(y))) throw "ERROR";
+		if(isNaN(parseFloat(x))) throw "ERROR";
+
+		var calcresult = 0;
+		if (z == '+') {
+			calcresult = parseFloat(y) + parseFloat(x);
+		}
+
+		else if (z == '-') {
+			calcresult = parseFloat(y) - parseFloat(x);
+		}
+
+		else if (z == '*') {
+			calcresult = parseFloat(y) * parseFloat(x);
+		}
+
+		else if (z == '/') {
+			calcresult = parseFloat(y) / parseFloat(x);
+		}
+
+	
+		else {
+			calcresult = '';
+		}
+
+		return calcresult;
+}
+    
+	
+	
+});
+
+app.controller('laskinController', ['$scope', 'operators', function($scope, operators) {
 	
 $scope.screenLower = '';
 $scope.screenUpper = '';	
-var operators = ['+','-','*','/'];
 
 $scope.inputKey = function(x) {
 
@@ -19,67 +54,38 @@ $scope.screenLower = '';
 
 }
 
-$scope.showResult = function() {
+$scope.chooseOperator = function(operator) { 
+	try
+		{
+			var y = $scope.screenUpper.substring(0, $scope.screenUpper.length-1);
+			var x = $scope.screenLower;	
+			var z = $scope.screenUpper.charAt($scope.screenUpper.length-1);
+		
+	if (operator == '=') {
 	
-try {	
-var y = $scope.screenUpper.substring(0, $scope.screenUpper.length-1);
-var x = $scope.screenLower;	
-var z = $scope.screenUpper.charAt($scope.screenUpper.length-1);
-
-if(isNaN(parseFloat(y))) throw "ERROR";
-if(isNaN(parseFloat(x))) throw "ERROR";
-
-$scope.screenUpper = y + z + x;
-if (z == '+') {
-$scope.screenLower = parseFloat(y) + parseFloat(x);
-}
-
-else if (z == '-') {
-$scope.screenLower = parseFloat(y) - parseFloat(x);
-}
-
-else if (z == '*') {
-$scope.screenLower = parseFloat(y) * parseFloat(x);
-}
-
-else if (z == '/') {
-$scope.screenLower = parseFloat(y) / parseFloat(x);
-}
-
-	
-else {
-	$scope.screenLower = x;
-}
-}
-
-catch (err)
-{
-	$scope.screenLower = err;
-}
-}
-
-$scope.chooseOperator = function(x)
-{
-	if (x == '=')
-	{
-		$scope.showResult();
+	    $scope.screenUpper = y + z + x;
+		$scope.screenLower = operators.showResult(y,x,z);
 	}
 	
 	else
 	{
 		if ($scope.screenUpper != '')
-		{	$scope.showResult();
-			console.log('plus is already there!');
-			$scope.calculate(x);
+		{	
+			$scope.screenLower = operators.showResult(y,x,z);
+			$scope.calculate(operator);
 		}
 		
 		else 
 		{
-		
-        $scope.calculate(x);
-		console.log('noplus');
+			$scope.calculate(operator);
 		}
 		
+	}
+	}
+	
+	catch (err)
+	{
+		$scope.screenLower = err;
 	}
 }	
 
