@@ -3,6 +3,7 @@ var laskin = angular.module('laskin',[]);
 laskin.controller('laskinController', ['$scope', function($scope) {
 	
 $scope.screenLower = '';	
+var operators = ['+','-','*','/'];
 
 $scope.inputKey = function(x) {
 
@@ -41,7 +42,7 @@ $scope.screenLower = parseFloat(y) / parseFloat(x);
 
 	
 else {
-	$scope.screenLower = 'the operator used was' + z;
+	$scope.screenLower = x;
 }
 }
 
@@ -54,15 +55,8 @@ $scope.chooseOperator = function(x)
 	
 	else
 	{
-		if ($scope.screenUpper.contains('+'))
-		{
-		$scope.showResult();
-		}
-		
-		else {
-			
 		$scope.calculate(x);
-		}
+		
 	}
 }	
 
