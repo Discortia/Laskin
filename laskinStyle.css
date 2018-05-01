@@ -5,7 +5,7 @@ table {
 	margin-left : 10px;
 	margin-top : 30px;
 	position : relative;
-	top : 9px;
+	top : 12px;
 }
 
 .main {
@@ -17,7 +17,7 @@ table {
 
 
 .screen {
-	height : 75px;
+	height : 79px;
 	width : 229px;
 	background-image : url("imgs/scrn.png");
 	background-repeat: no-repeat;
@@ -25,6 +25,7 @@ table {
 	color : #ffffff;
 	font-family: 'Cutive Mono';
 	margin : auto;
+	
 
 }
 
@@ -44,15 +45,39 @@ table {
 	font-size : 20px;
 }
 
-
-td.square {
+.square {
+	background-image : url("imgs/square_1.png");
+	background-repeat : no-repeat;
+	background-position : center;
 	height : 41px;
-	width : 52px;
-	margin : 0px;
-}	
+	width : 54px;
+	text-align : center;
+	box-shadow: 0px 0px 4px 2px #000000;
+}
+
+.tall {
+	background-image : url("imgs/tall_1.png");
+	background-repeat : no-repeat;
+	background-position : center;
+	height : 87px;
+	width : 53px;
+	text-align : center;
+	box-shadow: 0px 0px 4px 2px #000000;
+}
 
 .wide {
+	background-image : url("imgs/wide_1.png");
+	background-repeat : no-repeat;
+	background-position : center;
+	height : 41px;
+	width : 112px;
+	text-align : center;
+	box-shadow: 0px 0px 4px 2px #000000;
+	
+}
 
+img {
+    opacity: 0.6;
 
 }
 

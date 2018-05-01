@@ -1,98 +1,103 @@
-var laskin = angular.module('laskin',[]);
+var app = angular.module('laskin',[]);
 
-laskin.controller('laskinController', ['$scope', function($scope) {
+app.service('operators', function() {
+    this.showResult = function(y,x,z) { //calculates the result and returns it 
 	
-$scope.screenLower = '';
-$scope.screenUpper = '';	
-var operators = ['+','-','*','/'];
 
-$scope.inputKey = function(x) {
+		if(isNaN(parseFloat(y))) throw "ERROR";  
+		if(isNaN(parseFloat(x))) throw "ERROR";
 
-$scope.screenLower = $scope.screenLower + x;
+		var calcresult = 0.0000000;
+		
+		if (z == '+') {
+			calcresult = parseFloat(y) + parseFloat(x);
+		}
 
-}
+		else if (z == '-') {
+			calcresult = parseFloat(y) - parseFloat(x);
+		}
 
-$scope.calculate = function(x) {
-$scope.screenUpper = '';	
-$scope.screenUpper = $scope.screenLower + x;
-$scope.screenLower = '';
+		else if (z == '*') {
+			calcresult = parseFloat(y) * parseFloat(x);
+		}
 
-}
-
-$scope.showResult = function() {
-	
-try {	
-var y = $scope.screenUpper.substring(0, $scope.screenUpper.length-1);
-var x = $scope.screenLower;	
-var z = $scope.screenUpper.charAt($scope.screenUpper.length-1);
-
-if(isNaN(parseFloat(y))) throw "ERROR";
-if(isNaN(parseFloat(x))) throw "ERROR";
-
-$scope.screenUpper = y + z + x;
-if (z == '+') {
-$scope.screenLower = parseFloat(y) + parseFloat(x);
-}
-
-else if (z == '-') {
-$scope.screenLower = parseFloat(y) - parseFloat(x);
-}
-
-else if (z == '*') {
-$scope.screenLower = parseFloat(y) * parseFloat(x);
-}
-
-else if (z == '/') {
-$scope.screenLower = parseFloat(y) / parseFloat(x);
-}
+		else if (z == '/') {
+			calcresult = parseFloat(y) / parseFloat(x);
+		}
 
 	
-else {
-	$scope.screenLower = x;
-}
-}
+		else {
+			calcresult = '';
+		}
 
-catch (err)
-{
-	$scope.screenLower = err;
-}
-}
-
-$scope.chooseOperator = function(x)
-{
-	if (x == '=')
-	{
-		$scope.showResult();
+		return calcresult;
 	}
+    
+});
+
+app.controller('laskinController', ['$scope', 'operators', function($scope, operators) {
 	
-	else
-	{
-		if ($scope.screenUpper != '')
-		{	$scope.showResult();
-			console.log('plus is already there!');
-			$scope.calculate(x);
+$scope.screenLower = '';
+$scope.screenUpper = '';	
+
+$scope.inputKey = function(x) { //prints numbers and decimals to screen
+
+	$scope.screenLower = $scope.screenLower + x;
+
+}
+
+$scope.calculate = function(x) {  //moves the user input to upper screen and clears the lower screen
+	$scope.screenUpper = '';	 
+	$scope.screenUpper = $scope.screenLower + x;
+	$scope.screenLower = '';
+
+}
+
+$scope.chooseOperator = function(operator) { 
+	try {
+			//splits the string into first number (y) second number(x) and operator (z)
+			var y = $scope.screenUpper.substring(0, $scope.screenUpper.length-1);
+			var x = $scope.screenLower;	
+			var z = $scope.screenUpper.charAt($scope.screenUpper.length-1);
+		
+			if (operator == '=') { //printing out the result
+	
+				if(!(isNaN(parseFloat(z)))) throw "ERROR"; //stops weirdness if = is pressed several times in a row
+				
+				$scope.screenUpper = y + z + x;
+				$scope.screenLower = operators.showResult(y,x,z);
+			}
+	
+			else {  
+				
+				if ($scope.screenUpper != '') { //continuing the calculation from existing result
+					
+					$scope.screenLower = operators.showResult(y,x,z);
+					$scope.calculate(operator);
+					console.log('whatisthis?');
+				}
+		
+				else  { //preparing the string for calculation
+					$scope.calculate(operator);
+				}
+		
+			}
 		}
-		
-		else 
-		{
-		
-        $scope.calculate(x);
-		console.log('noplus');
-		}
-		
+	
+	catch (err) {
+		$scope.screenLower = err; //in case the user clicks on things he is not supposed to
 	}
 }	
 
 
-//Clear the whole screen
-$scope.clearScreen = function() {
+$scope.clearScreen = function() {  //Clear the whole screen
 	$scope.screenUpper = '';
 	$scope.screenLower = '';
 }
-//Clear only the last character
+
 $scope.clearLast = function() {
-	var view = $scope.screenLower;
-	
+	//Clear only the last character
+	var view = $scope.screenLower.toString();
 	$scope.screenLower = view.substring(0, view.length -1);
 }
 

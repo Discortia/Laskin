@@ -7,7 +7,7 @@
 <title>Laskin</title>
 </head>
 
-<body>
+<body onload="Animate()">
 <div class="main" ng-app="laskin" ng-controller="laskinController">
 <table>
 <tr>
@@ -22,39 +22,38 @@
 	</td>
 </tr>
 <tr>
-	<td class ="square" ng-click = "clearScreen()"><img src="imgs/oper_clear_1.png"></td>
-	<td class ="square" ng-click = "clearLast()"><img src="imgs/oper_back_1.png"></td>
-	<td class ="square" ng-click = "chooseOperator('/')"><img src="imgs/oper_div_1.png"></td>
-	<td class ="square" ng-click = "chooseOperator('*')"><img src="imgs/oper_multi_1.png"></td>
+	<td class ="square" ng-click = "clearScreen()"><img src = "imgs/clear.png"></td>
+	<td class ="square" ng-click = "clearLast()"><img src = "imgs/back.png"></td>
+	<td class ="square" ng-click = "chooseOperator('/')"><img src = "imgs/divide.png"></td>
+	<td class ="square" ng-click = "chooseOperator('*')"><img src = "imgs/multiply.png"></td>
 </tr>
 <tr>
-	<td class ="square" ng-click = "inputKey(7)"><img src="imgs/num7_1.png"></td>
-	<td class ="square" ng-click = "inputKey(8)"><img src="imgs/num8_1.png"></td>
-	<td class ="square" ng-click = "inputKey(9)"><img src="imgs/num9_1.png"></td>
-	<td class ="square" ng-click = "chooseOperator('-')"><img src="imgs/oper_subtr_1.png"></td>
+	<td class ="square" ng-click = "inputKey(7)"><img src = "imgs/num7.png"></td>
+	<td class ="square" ng-click = "inputKey(8)"><img src = "imgs/num8.png"></td>
+	<td class ="square" ng-click = "inputKey(9)"><img src = "imgs/num9.png"></td>
+	<td class ="square" ng-click = "chooseOperator('-')"><img src = "imgs/subtract.png"></td>
 </tr>
 <tr>
-	<td class ="square" ng-click = "inputKey(4)"><img src="imgs/num4_1.png"></td>
-	<td class ="square" ng-click = "inputKey(5)"><img src="imgs/num5_1.png"></td>
-	<td class ="square" ng-click = "inputKey(6)"><img src="imgs/num6_1.png"></td>
-	<td class ="square" ng-click = "chooseOperator('+')"><img src="imgs/oper_add_1.png"></td>
+	<td class ="square" ng-click = "inputKey(4)"><img src = "imgs/num4.png"></td>
+	<td class ="square" ng-click = "inputKey(5)"><img src = "imgs/num5.png"></td>
+	<td class ="square" ng-click = "inputKey(6)"><img src = "imgs/num6.png"></td>
+	<td class ="square" ng-click = "chooseOperator('+')"><img src = "imgs/add.png"></td>
 </tr>
 <tr>
-	<td class ="square" ng-click = "inputKey(1)"><img src="imgs/num1_1.png"></td>
-	<td class ="square" ng-click = "inputKey(2)"><img src="imgs/num2_1.png"></td>
-	<td class ="square" ng-click = "inputKey(3)"><img src="imgs/num3_1.png"></td>
-	<td class ="wide" rowspan=2 ng-click="chooseOperator('=')"><img src="imgs/oper_eq_1.png"></td>
+	<td class ="square" ng-click = "inputKey(1)"><img src = "imgs/num1.png"></td>
+	<td class ="square" ng-click = "inputKey(2)"><img src = "imgs/num2.png"></td>
+	<td class ="square" ng-click = "inputKey(3)"><img src = "imgs/num3.png"></td>
+	<td class ="tall" rowspan=2 ng-click="chooseOperator('=')"><img src = "imgs/equals.png"></td>
 </tr>
 <tr>
-	<td class ="wide" colspan=2 ng-click="inputKey(0)"><img src="imgs/num0_1.png"></td>
-	<td class ="square" ng-click="inputKey('.')"><img src="imgs/decimal_1.png"></td>
+	<td class ="wide" colspan=2 ng-click="inputKey(0)"><img src = "imgs/num0.png"></td>
+	<td class ="square" ng-click="inputKey('.')"><img src = "imgs/decimal.png"></td>
 </tr>
 </table>
 
-
 </div>
-
 <script src="laskinController.js"></script>
+<script src="buttonAnimations.js"></script>
 </body>
 
 </html> 
