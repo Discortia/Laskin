@@ -65,15 +65,20 @@ $scope.chooseOperator = function(operator) {
 				if(!(isNaN(parseFloat(z)))) throw "ERROR"; //stops weirdness if = is pressed several times in a row
 				
 				$scope.screenUpper = y + z + x;
-				$scope.screenLower = operators.showResult(y,x,z);
+				$scope.screenLower = String(operators.showResult(y,x,z));
+
 			}
 	
 			else {  
 				
 				if ($scope.screenUpper != '') { //continuing the calculation from existing result
 					
-					$scope.screenLower = operators.showResult(y,x,z);
+					var result = operators.showResult(y,x,z);
+					$scope.screenUpper = y + z + x;
+					$scope.screenLower = result;
 					$scope.calculate(operator);
+					
+
 			
 				}
 		
