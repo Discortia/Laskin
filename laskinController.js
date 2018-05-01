@@ -74,7 +74,7 @@ $scope.chooseOperator = function(operator) {
 					
 					$scope.screenLower = operators.showResult(y,x,z);
 					$scope.calculate(operator);
-					console.log('whatisthis?');
+			
 				}
 		
 				else  { //preparing the string for calculation
