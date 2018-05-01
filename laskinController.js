@@ -71,10 +71,16 @@ $scope.chooseOperator = function(operator) {
 			else {  
 				
 				if ($scope.screenUpper != '') { //continuing the calculation from existing result
+<<<<<<< HEAD
 					
 					$scope.screenLower = operators.showResult(y,x,z);
 					$scope.calculate(operator);
 					console.log('whatisthis?');
+=======
+
+					$scope.screenLower = x; 
+					$scope.calculate(operator);
+>>>>>>> 91153b10a5bb722478c628f5c2214741cc033298
 				}
 		
 				else  { //preparing the string for calculation
@@ -98,6 +104,10 @@ $scope.clearScreen = function() {  //Clear the whole screen
 $scope.clearLast = function() {
 	//Clear only the last character
 	var view = $scope.screenLower.toString();
+<<<<<<< HEAD
+=======
+	console.log(view);
+>>>>>>> 91153b10a5bb722478c628f5c2214741cc033298
 	$scope.screenLower = view.substring(0, view.length -1);
 }
 
